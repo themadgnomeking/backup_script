@@ -29,19 +29,17 @@ class backup_files:
         selected_folder = []
         destination_folder = []
 
-        def selectFolder(bool):
+        def selectFolder():
             #root = Tk()
-            current_drecitory = filedialog.askdirectory()
-            file_path = os.path.join(current_drecitory)
-            
-            if True:
-                selected_folder.append(file_path)
-                return "You've selected a folder to backup"
-            else:
-                destination_folder.append(file_path)
-                return "You've selected the backup location"
+            current_directory = filedialog.askdirectory()
+            file_path = os.path.join(current_directory)
             #selected_folder.append(file_path)
             return file_path
+        
+        def selectDestinationFolder():
+            current_directory = filedialog.askdirectory()
+            file_path = os.path.join(current_directory)
+            return file_path + "you have selected the destination folder"
 
         def backupCommand():
             #copy files from start location
@@ -50,18 +48,16 @@ class backup_files:
             #message will display date and time when it's done
             return "Your files are backed up"
             
-        button1 = Button(root, text="Select folder to backup", command = selectFolder(False))
+        button1 = Button(root, text="Select folder to backup", command = selectFolder)
         button1.pack()
 
-        button2 = Button(root, text="Select destination folder", command = selectFolder(True))
+        button2 = Button(root, text="Select destination folder", command = selectDestinationFolder)
         button2.pack()
 
         root.title("Backup Script")
         root.mainloop()
 
     #-----------------------------
-    selected_folder = []
-    destination_folder = []
     #button for select start folders, destination folder, save auto backup, manual backup
 
     
