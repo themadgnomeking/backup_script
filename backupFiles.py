@@ -7,6 +7,7 @@
 from tkinter import filedialog
 from tkinter import *
 import os
+import shutil
 
 
 class backup_files:
@@ -26,26 +27,28 @@ class backup_files:
 
 
     #define parameters of the buttons
-        selected_folder = []
-        destination_folder = []
+        selected_folder = ""
+        destination_folder = ""
 
         def selectFolder():
             #root = Tk()
             current_directory = filedialog.askdirectory()
-            file_path = os.path.join(current_directory)
+            selected_folder = os.path.join(current_directory)
             #selected_folder.append(file_path)
-            return file_path
+            return selected_folder
         
         def selectDestinationFolder():
             current_directory = filedialog.askdirectory()
-            file_path = os.path.join(current_directory)
-            return file_path + "you have selected the destination folder"
+            destination_folder = os.path.join(current_directory)
+            return destination_folder + "you have selected the destination folder"
 
         def backupCommand():
             #copy files from start location
             #paste files to destination location
             #return a message when it's done
             #message will display date and time when it's done
+            
+
             return "Your files are backed up"
             
         button1 = Button(root, text="Select folder to backup", command = selectFolder)
